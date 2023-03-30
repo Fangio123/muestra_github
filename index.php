@@ -117,15 +117,15 @@
 
         <div class="card-body table-responsive p-0">
         <?php
-                    include "conexion.php";
+        include "conexion.php";
 
-                    $datos_stock = conexion_dbstock();
+        $datos_stock = conexion_dbstock();
           
-                    $registros_stock = $datos_stock -> query("SELECT * FROM integrador");
+        $registros_stock = $datos_stock -> query("SELECT * FROM integrador");
                     
-                    while ($registro_stock = $registros_stock->fetch_assoc()){
+        while ($registro_stock = $registros_stock->fetch_assoc()){
 
-                    ?>  
+        ?>  
 
         <!-- Ubicacion de la tabla -->
         <table class="table">
