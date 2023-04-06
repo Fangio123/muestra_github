@@ -123,8 +123,7 @@
           
         $registros_stock = $datos_stock -> query("SELECT * FROM integrador");
                     
-        while ($registro_stock = $registros_stock->fetch_assoc()){
-
+        
         ?>  
 
         <!-- Ubicacion de la tabla -->
@@ -141,22 +140,21 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+    <?php
+    while ($registro_stock = $registros_stock->fetch_assoc()){
+    ?>   
+      <th scope="row"><?php echo  $registrofat["ID"]; ?> </th>
+      <td><?php echo  $registrofat["Producto"]; ?></td>
+      <td><?php echo  $registrofat["Cantidad"]; ?></td>
+      <td><?php echo  $registrofat["Preciounit"]; ?></td>
+      <td><?php echo  $registrofat["Imagen"]; ?></td>
+      <td><?php echo  $registrofat["Fecha"]; ?></td>
+    }
+      
+    
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    
+    
   </tbody>
 </table> 
 
