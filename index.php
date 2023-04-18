@@ -77,15 +77,15 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Menu 1
+                  MENU
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="borrardb.php" class="nav-link">
                 <i class="nav-icon fas fa-plus"></i>
                 <p>
-                  Menu 2
+                  BORRAR/MODIFICAR
                 </p>
               </a>
             </li>
@@ -108,7 +108,9 @@
           <div class="card-tools">
             <div class="input-group input-group-sm">
               <div>
-                <a class="btn btn-primary" style="width: 100%;background-color:deeppink;border-color:deeppink;" href="">+ Agregar nuevo</a>
+                <a class="btn btn-primary" style="width: 100%;background-color:deeppink;border-color:deeppink;" href="Nuevo.php"> + Agregar nuevo</a>
+                
+              
               </div>
             </div>
           </div>
@@ -122,6 +124,8 @@
         $datos_stock = conexion_dbstock();
           
         $registros_stock = $datos_stock -> query("SELECT * FROM integrador");
+
+    
                     
         
         ?>  
@@ -139,20 +143,27 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-    <?php
-    while ($registro_stock = $registros_stock->fetch_assoc()){
-    ?>   
-      <th scope="row"><?php echo  $registrofat["ID"]; ?> </th>
-      <td><?php echo  $registrofat["Producto"]; ?></td>
-      <td><?php echo  $registrofat["Cantidad"]; ?></td>
-      <td><?php echo  $registrofat["Preciounit"]; ?></td>
-      <td><?php echo  $registrofat["Imagen"]; ?></td>
-      <td><?php echo  $registrofat["Fecha"]; ?></td>
-    }
-      
     
-    </tr>
+    <?php
+while ($registro_stock = $registros_stock->fetch_assoc()){
+  echo "<tr>";
+  echo "<th scope=\"row\">" . $registro_stock["ID"] . "</th>";
+  echo "<td>" . $registro_stock["Producto"] . "</td>";
+  echo "<td>" . $registro_stock["Cantidad"] . "</td>";
+  echo "<td>" . $registro_stock["Preciounit"] . "</td>";
+  echo "<td>" . $registro_stock["Imagen"] . "</td>";
+  echo "<td>" . $registro_stock["Fecha"] . "</td>";
+  echo "</tr>";
+
+    
+
+
+
+}
+?>
+
+    
+    
     
     
   </tbody>
